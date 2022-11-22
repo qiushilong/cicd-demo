@@ -24,3 +24,14 @@ jobs:
         run: |
           echo Add other actions to build,
           echo test, and deploy your project.
+          
+      - name: 连接远程服务器
+        uses: garygrossgarten/github-action-ssh@release
+        with:
+          command: ls -a
+          host: ${{ secrets.HOST }}
+          username: root
+          port: 22
+          privateKey: ${{ secrets.PRIVATE_KEY }}
+          
+      
